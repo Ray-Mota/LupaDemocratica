@@ -4,7 +4,7 @@ import json
 
 # ── Configuração da página ──────────────────────────────────────────────────
 st.set_page_config(
-    page_title="VerificaFato – Verificador de Veracidade",
+    page_title="Lupa Democrática",
     page_icon="🔍",
     layout="centered",
 )
@@ -90,10 +90,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Cabeçalho ───────────────────────────────────────────────────────────────
-st.markdown('<div class="main-title">🔍 VerificaFato</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">Lupa Democrática</div>', unsafe_allow_html=True)
 st.markdown(
-    '<div class="subtitle">Verificador de Veracidade com IA · Feira de Ciências 2025<br>'
-    '<em>Veracidade e Vivência Democrática</em></div>',
+    '<div class="subtitle">Verificador de Veracidade com IA<br>',
     unsafe_allow_html=True,
 )
 
@@ -104,7 +103,7 @@ if "historico" not in st.session_state:
 # ── Formulário principal ─────────────────────────────────────────────────────
 with st.container():
     afirmacao = st.text_area(
-        "📝 Digite a afirmação que deseja verificar:",
+        "Digite a informação que deseja verificar:",
         placeholder="Ex: A Terra tem aproximadamente 4,5 bilhões de anos.",
         height=120,
     )
@@ -113,12 +112,12 @@ with st.container():
     with col1:
         categoria = st.selectbox(
             "Categoria",
-            ["🌍 Ciência", "🏛️ Política", "💊 Saúde", "📰 Notícia", "📚 História", "🔢 Estatística", "Outro"],
+            ["Ciência", "Política", "Saúde", "Notícia", "História", "Estatística", "Outro"],
         )
     with col2:
         nivel = st.selectbox("Nível de detalhe", ["Resumido", "Detalhado"])
 
-    verificar = st.button("🔎 Verificar Veracidade")
+    verificar = st.button("Avaliar Veracidade")
 
 # ── Função de análise via Claude API ─────────────────────────────────────────
 def analisar_afirmacao(texto: str, cat: str, detalhe: str) -> dict:
@@ -220,9 +219,9 @@ def render_resultado(res: dict, afirmacao_orig: str):
 # ── Execução da verificação ───────────────────────────────────────────────────
 if verificar:
     if not afirmacao.strip():
-        st.warning("⚠️ Por favor, digite uma afirmação para verificar.")
+        st.warning("Por favor, digite uma afirmação para verificar.")
     else:
-        with st.spinner("🤖 Analisando com IA... aguarde um momento"):
+        with st.spinner("Analisando com IA... aguarde um momento"):
             try:
                 resultado = analisar_afirmacao(afirmacao, categoria, nivel)
                 render_resultado(resultado, afirmacao)
@@ -254,7 +253,6 @@ if st.session_state.historico:
 # ── Rodapé ────────────────────────────────────────────────────────────────────
 st.markdown("---")
 st.markdown(
-    "<center><small>🏫 Feira de Ciências · Veracidade e Vivência Democrática · "
-    "Powered by Groq AI (LLaMA 3.3 70B)</small></center>",
+    "<center><small>· Democracia e Vivência Democrática · ",
     unsafe_allow_html=True,
 )
