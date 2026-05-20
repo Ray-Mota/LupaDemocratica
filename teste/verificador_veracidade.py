@@ -32,16 +32,18 @@ st.markdown("""
         margin-bottom: 2rem;
     }
     .card {
-        background: #f8f9fa;
-        border-radius: 16px;
-        padding: 1.5rem;
-        margin-top: 1.5rem;
-        border-left: 6px solid #1a73e8;
-    }
-    .verdict-verdadeiro  { border-left-color: #0f9d58; background: #e6f4ea; }
-    .verdict-falso       { border-left-color: #d93025; background: #fce8e6; }
-    .verdict-parcial     { border-left-color: #f9a825; background: #fef9e7; }
-    .verdict-incerto     { border-left-color: #9e9e9e; background: #f5f5f5; }
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-left: 6px solid #1a73e8;
+    color: #1a1a1a !important;
+}
+.card p, .card strong { color: #1a1a1a !important; }
+.verdict-verdadeiro  { border-left-color: #0f9d58; background: #e6f4ea; color: #1a1a1a !important; }
+.verdict-falso       { border-left-color: #d93025; background: #fce8e6; color: #1a1a1a !important; }
+.verdict-parcial     { border-left-color: #f9a825; background: #fef9e7; color: #1a1a1a !important; }
+.verdict-incerto     { border-left-color: #9e9e9e; background: #f5f5f5; color: #1a1a1a !important; }
 
     .badge {
         display: inline-block;
@@ -78,13 +80,13 @@ st.markdown("""
         color: #1a73e8;
     }
     .democracia-box {
-        background: linear-gradient(135deg, #e8f0fe, #e6f4ea);
-        border-radius: 12px;
-        padding: 1rem 1.2rem;
-        margin-top: 1rem;
-        font-size: 0.88rem;
-        color: #333;
-    }
+    background: linear-gradient(135deg, #e8f0fe, #e6f4ea);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    color: #1a1a1a !important;
+}
     footer { display: none; }
 </style>
 """, unsafe_allow_html=True)
